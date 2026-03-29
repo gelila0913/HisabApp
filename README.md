@@ -34,7 +34,7 @@ The system acts as a digital bridge between independent branches and a central o
 
 ### **Feature 2: Sales Recording & Personnel Management (CRUD)**
 * **Product Sales Receipts:** Captures customer info (Name, Phone), product details, and the specific salesperson for every transaction.
-* **Historical Data Retrieval:** Users can instantly search and find earlier sales data using date filters to resolve customer queries or audits.
+* **Historical Data Retrieval:** Casher and Owner can instantly search and find earlier sales data using date filters to resolve customer queries or audits.
 * **Staff Performance Tracking:** Manages a list of active sales personnel and tracks exactly how many units each individual has sold to ensure accountability.
 
 ### **Feature 3: Manual Data Synchronization **
