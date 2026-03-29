@@ -1,4 +1,4 @@
-# HisabApp: 
+# HisabApp
 ## Multi-Branch Stock & Sales Management System
 
 ## 1. Project Overview
@@ -37,7 +37,7 @@ The system acts as a digital bridge between independent branches and a central o
 * **Historical Data Retrieval:** Users can instantly search and find earlier sales data using date filters to resolve customer queries or audits.
 * **Staff Performance Tracking:** Manages a list of active sales personnel and tracks exactly how many units each individual has sold to ensure accountability.
 
-### **Feature 3: Manual Data Synchronization (The "Sync")**
+### **Feature 3: Manual Data Synchronization **
 * **Nightly Summary Table:** The app generates a summarized report (Product Type, Model, Quantity, and Staff) at the end of the day.
 * **Asynchronous Transfer:** The Cashier sends a screenshot or export of this report to the Owner via external platforms (e.g., Telegram or WhatsApp).
 * **Owner Aggregation:** The Owner uses a **"Smart Form"** in HisabApp to input the report data, which then updates global income and staff salary metrics.
