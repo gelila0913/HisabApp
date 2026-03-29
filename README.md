@@ -20,7 +20,7 @@ The system acts as a digital bridge between independent branches and a central o
 | Gelila Sintayehu | UGR/3508/16 |
 | Kidist Nega | UGR/1923/16 |
 | Nabon Amanuel | UGR/7416/16 |
-| Victory Bedru | UGR/4541/16 |
+| Victory Bedru | UGR/4541/16 | 
 
 ---
 
