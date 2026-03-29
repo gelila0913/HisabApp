@@ -48,7 +48,7 @@ The system acts as a digital bridge between independent branches and a central o
 
 ---
 
-## 4. Role-Based Access Control (RBAC) & Restrictions
+## 4. Role-Based Access Control & Restrictions
 To maintain business security and data privacy, the following restrictions are strictly enforced within **HisabApp**:
 
 ### **Owner Role (Full Administrative Access)**
@@ -66,7 +66,6 @@ To maintain business security and data privacy, the following restrictions are s
 
 ## 5. Technical Specifications
 * **Architecture:** **Domain-Driven Design (DDD)** (Domain, Infrastructure, Application, and Presentation layers).
-* **Persistence:** **SQLite** for 100% offline data integrity on the mobile device.
 * **Backend:** Custom **Local REST API** (running on localhost); no Firebase or cloud services used.
 * **Testing:** Comprehensive Unit, Widget, and Integration tests as per project requirements.
 
