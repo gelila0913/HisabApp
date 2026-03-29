@@ -1,5 +1,5 @@
-# HisabApp
-##Multi-Branch Stock & Sales Management System
+# HisabApp: 
+## Multi-Branch Stock & Sales Management System
 
 ## 1. Project Overview
 **HisabApp** is an offline-first mobile application built with Flutter. It serves as a comprehensive business utility for retail owners who manage multiple independent locations in areas with limited or unreliable internet connectivity.
@@ -14,13 +14,13 @@ The system acts as a digital bridge between independent branches and a central o
 ---
 
 ## 2. Team Members
-| Full Name | ID | 
-| :--- | :--- | :--- |
-| [Abrham Yonatan] | [] | 
-| [Gelila Sintayehu] | [ugr/3508/16] | 
-| [kidist Nega] | [ UGR/1923/16] | 
-| [Nabon Amanuel] | [UGR/7416/16] | 
-| [Victory Bedru] | [UGR/4541/16] | 
+| Full Name | ID |
+| :--- | :--- |
+| Abrham Yonatan | [Add ID] |
+| Gelila Sintayehu | UGR/3508/16 |
+| Kidist Nega | UGR/1923/16 |
+| Nabon Amanuel | UGR/7416/16 |
+| Victory Bedru | UGR/4541/16 |
 
 ---
 
@@ -34,7 +34,7 @@ The system acts as a digital bridge between independent branches and a central o
 
 ### **Feature 2: Sales Recording & Personnel Management (CRUD)**
 * **Product Sales Receipts:** Captures customer info (Name, Phone), product details, and the specific salesperson for every transaction.
-* **Historical Data Retrieval:** Unlike paper logs, the Cashier can instantly search and find earlier sales data using date filters to resolve customer queries or audits.
+* **Historical Data Retrieval:** Users can instantly search and find earlier sales data using date filters to resolve customer queries or audits.
 * **Staff Performance Tracking:** Manages a list of active sales personnel and tracks exactly how many units each individual has sold to ensure accountability.
 
 ### **Feature 3: Manual Data Synchronization (The "Sync")**
@@ -44,7 +44,7 @@ The system acts as a digital bridge between independent branches and a central o
 
 ### **Feature 4: Financial & Profit Intelligence**
 * **Net Profit Engine:** Automatically calculates profit based on sales revenue minus cost of goods and operational expenses.
-* **Salary & Expense Management:** Tracks staff sales counts to simplify salary/commission calculations and logs all business expenses (transport, rent, purchases, and miscellaneous costs).
+* **Salary & Expense Management:** Tracks staff sales counts to simplify salary calculations and logs all business expenses (transport, rent, purchases, and miscellaneous costs).
 
 ---
 
@@ -76,4 +76,4 @@ To maintain business security and data privacy, the following restrictions are s
 1.  **Operation:** Cashier records sales and costs digitally in **HisabApp**, replacing paper logs for any retail product.
 2.  **Reporting:** Cashier shares the daily summary table with the Owner via a screenshot or message.
 3.  **Sync:** Owner enters the summary into the **"Smart Form"** in HisabApp, selecting the corresponding branch and product.
-4.  **Analysis:** The app automatically updates the Owner’s dashboard with profit, salary data, and inventory balances.# HisabApp
+4.  **Analysis:** The app automatically updates the Owner’s dashboard with profit, salary data, and inventory balances.
