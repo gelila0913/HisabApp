@@ -1,78 +1,77 @@
 # HisabApp
 ## Multi-Branch Stock & Sales Management System
 
-## 1. Project Overview
-**HisabApp** is an offline-first mobile application built with Flutter. It serves as a comprehensive business utility for retail owners who manage multiple independent locations in areas with limited or unreliable internet connectivity.
-
-### The Main Purpose
-The system acts as a digital bridge between independent branches and a central owner. It replaces traditional, error-prone paper ledgers with a structured digital database, ensuring that every transaction is logged, every expense is accounted for, and inventory levels are always accurate across any product category.
-
-### The Goal
-* **For the Owner:** To minimize the hardship of manually managing diverse stock across different locations. **HisabApp** automates the complex calculation of net profit, total income, and sales staff salaries, removing the need for manual math and constant physical supervision.
-* **For the Cashier:** To eliminate the burden of paper-based recording. The app simplifies daily tasks by automating stock subtraction, providing instant access to historical sales data (often lost in paper logs), and automatically calculating daily branch income and expenses.
+**HisabApp** is an offline-first mobile business utility designed for retail owners and cashiers operating in environments with limited or unreliable internet connectivity. It replaces error-prone paper ledgers with a structured digital database, acting as a "digital bridge" between independent branches and a central owner.
 
 ---
 
-## 2. Team Members
+## Project Overview
+
+The primary goal of HisabApp is to automate complex business calculations—such as net profit, total income, and staff salaries—while eliminating the burden of manual paper-based recording. 
+
+### Core Objectives:
+* **For the Owner:** Minimize the hardship of managing diverse stock across multiple locations without constant physical supervision.
+* **For the Cashier:** Simplify daily tasks through automatic stock subtraction and instant access to historical sales data.
+
+---
+
+## Team Members
+
 | Full Name | ID |
 | :--- | :--- |
-| Abreham Yonatan | [ UGR/4463/16] |
-| Gelila Sintayehu | UGR/3508/16 |
-| Kidist Nega | UGR/1923/16 |
-| Nabon Amanuel | UGR/7416/16 |
-| Victory Bedru | UGR/4541/16 | 
+| **Abreham Yonatan** | [UGR/4463/16] |
+| **Gelila Sintayehu** | [UGR/3508/16] |
+| **Kidist Nega** | [UGR/1923/16] |
+| **Nabon Amanuel** | [UGR/7416/16] |
+| **Victory Bedru** | [UGR/4541/16] |
 
 ---
 
-## 3. Key Features
+## Key Features
 
-### **Feature 1: Universal Inventory & Stock Management (CRUD)**
-* **Digital Stock Ledger:** Cashiers can add any retail product with detailed specifications (Name, Model/Type, Category, and specific Attributes).
-* **Automatic Stock Subtraction:** As sales are recorded, the app automatically updates remaining inventory for that specific item, preventing overselling.
-* **Inventory Alerts:** Dashboard notifications for **Low Stock** (to prompt reordering) and **High Stock** (to manage storage space).
-* **Branch-Specific Catalogs:** Inventory is isolated by branch so the Cashier focuses only on their assigned local stock.
+### Features-1. Dynamic Role-Based Onboarding & Schema Mapping
+* **Unified Gateway:** Upon first launch, the app provides a landing page for users to identify as an **Owner** or **Cashier**. 
+* **Questionnaire-Driven Configuration:** Users complete a "Business Definition" form (e.g., Electronics vs. Clothing). The app uses this input to dynamically generate labels and input fields for all future stock and sales forms.
 
-### **Feature 2: Sales Recording & Personnel Management (CRUD)**
-* **Product Sales Receipts:** Captures customer info (Name, Phone), product details, and the specific salesperson for every transaction.
-* **Historical Data Retrieval:** Casher and Owner can instantly search and find earlier sales data using date filters to resolve customer queries or audits.
-* **Staff Performance Tracking:** Manages a list of active sales personnel and tracks exactly how many units each individual has sold to ensure accountability.
+### Features-2. Universal Inventory & Stock Management (CRUD)
+* **Digital Stock Ledger:** Manage products with custom specifications defined during onboarding (e.g., Model, Size, Color).
+* **Auto-Subtraction:** Real-time inventory updates as sales are recorded. The system prevents "ghost sales" by blocking transactions when stock reaches zero.
+* **Inventory Alerts:** Dashboard notifications for **Low Stock** and **High Stock** levels.
 
-### **Feature 3: Manual Data Synchronization **
-* **Nightly Summary Table:** The app generates a summarized report (Product Type, Model, Quantity, and Staff) at the end of the day.
-* **Asynchronous Transfer:** The Cashier sends a screenshot or export of this report to the Owner via external platforms (e.g., Telegram or WhatsApp).
-* **Owner Aggregation:** The Owner uses a **"Smart Form"** in HisabApp to input the report data, which then updates global income and staff salary metrics.
+### Features-3. Sales Recording & Personnel Management (CRUD)
+* **Detailed Sales Capture:** Capture customer info (Name, Phone), product specs, and salesperson details for every transaction.
+* **Performance Tracking:** Aggregated tables showing exactly how many units each staff member has sold to simplify salary and commission management.
 
-### **Feature 4: Financial & Profit Intelligence**
-* **Net Profit Engine:** Automatically calculates profit based on sales revenue minus cost of goods and operational expenses.
-* **Salary & Expense Management:** Tracks staff sales counts to simplify salary calculations and logs all business expenses (transport, rent, purchases, and miscellaneous costs).
+### Features-4. Manual Data Synchronization (The "Digital Bridge")
+* **Nightly Summary:** Generate a summarized daily report of sales including sales person report and remaining stock.
+* **Asynchronous Transfer:** Since the app is 100% offline, the Cashier exports a **structured plain-text table** and shares it via Telegram or WhatsApp.
+* **Owner Aggregation:** The Owner manually inputs this data into a "Smart Form" on their device to update global metrics.
 
----
-
-## 4. Role-Based Access Control & Restrictions
-To maintain business security and data privacy, the following restrictions are strictly enforced within **HisabApp**:
-
-### **Owner Role (Full Administrative Access)**
-* Create and delete branch profiles.
-* View global analytics: Total income, total inventory value, and net profit across **all** branches.
-* Manage global costs (Salaries, Transportation, Bulk Product Purchases).
-* Perform manual data sync by inputting daily reports received from Cashiers.
-
-### **Cashier Role (Restricted Branch Access)**
-* **Financial Privacy:** The Cashier is **strictly prohibited** from seeing the Owner’s global costs, total business profit, or total company income.
-* **Operational Isolation:** The Cashier cannot see reports, stock levels, or sales data from any other branch.
-* **Local Focus:** Access is limited to managing their assigned branch's stock, recording daily sales, logging local costs, and viewing their own branch's daily income.
+### Features-5. Financial & Profit Intelligence
+* **Net Profit Engine:** Automatically calculates branch-specific profit.
+* **Private Financial Management:** A private section for Owners to log "Operational Costs" (Rent, Bulk Purchases, Salaries) that is strictly hidden from the Cashier.
 
 ---
 
-## 5. Technical Specifications
-* **Architecture:** **Domain-Driven Design (DDD)** (Domain, Infrastructure, Application, and Presentation layers).
-* **Backend:** Custom **Local REST API** (running on localhost); no Firebase or cloud services used.
-* **Testing:** Comprehensive Unit, Widget, and Integration tests as per project requirements.
+## Role-Based Access Control (RBAC)
+
+* **Owner Role:** Full administrative access. Owners can create/delete branch profiles, view global analytics, manage operational costs, and perform manual data syncs.
+* **Cashier Role:** Restricted branch access. Cashiers are prohibited from seeing global company profit or data from other branches. Access is limited to local stock management and daily operational data.
 
 ---
 
-## 6. How It Works: The Workflow
-1.  **Operation:** Cashier records sales and costs digitally in **HisabApp**, replacing paper logs for any retail product.
-2.  **Reporting:** Cashier shares the daily summary table with the Owner via a screenshot or message.
-3.  **Sync:** Owner enters the summary into the **"Smart Form"** in HisabApp, selecting the corresponding branch and product.
-4.  **Analysis:** The app automatically updates the Owner’s dashboard with profit, salary data, and inventory balances.
+## 🛠 Technical Specifications
+
+* **Architecture:** Domain-Driven Design (DDD).
+* **Backend:** Custom Local REST API (running on `localhost`); no Firebase or cloud services used.
+* **Testing:** Comprehensive Unit, Widget, and Integration tests.
+
+---
+
+## How It Works: The Workflow
+
+1.  **Setup:** Both users "Sign Up" locally. The app configures the database based on their role and business type.
+2.  **Operation:** The Cashier records sales digitally. Stock is subtracted automatically, replacing paper logs.
+3.  **Reporting:** The Cashier triggers an "Export," creating a summarized table stored in their local "Export Archive."
+4.  **Sync:** The Cashier shares the text summary via Telegram/WhatsApp.
+5.  **Analysis:** The Owner manually enters those figures into the "Smart Form" on their device to update profit metrics and staff performance.
