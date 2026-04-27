@@ -5,22 +5,24 @@ import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
 
-// FIX: Changed 'controllers' to 'services' to match your folder move
 import 'package:hisab_server/services/database_service.dart'; 
-// ADD: Import your new AuthController
 import 'package:hisab_server/controllers/auth_controller.dart';
+// ADD: Import the settings controller for your attributes logic
+import 'package:hisab_server/controllers/settings_controller.dart';
 
 void main(List<String> args) async {
-  // Initialize your controller
+  // Initialize your controllers
   final authCtrl = AuthController();
+  final settingsCtrl = SettingsController();
 
   // 1. Define the Router
   final _router = Router()
     ..get('/', _rootHandler)
     ..get('/db-test', _dbTestHandler)
     ..post('/login', _loginHandler)
-    // ADD: The route for registering the business name
-    ..post('/register-business', authCtrl.registerBusiness); 
+    ..post('/register-business', authCtrl.registerBusiness)
+    // ADD: The route for saving the dynamic attributes from your Figma UI
+    ..post('/setup/define-attributes', settingsCtrl.defineProductAttributes); 
 
   final ip = InternetAddress.anyIPv4;
   final port = int.parse(Platform.environment['PORT'] ?? '8080');
@@ -32,8 +34,14 @@ void main(List<String> args) async {
   final server = await serve(handler, ip, port);
   
   print('--- HisabApp Full-Stack Engine ---');
-  print('Server live at: http://localhost:${server.port}/');
-  print('Registration Route: http://localhost:${server.port}/register-business');
+  print('✅ Server live at: http://localhost:${server.port}/');
+  print('-------------------------------------------');
+  print('🚀 ACTIVE PATHS:');
+  print('1. [GET]  /db-test              -> Check MySQL');
+  print('2. [POST] /register-business    -> Company & Branch Setup');
+  print('3. [POST] /setup/define-attributes -> Custom Product Fields');
+  print('4. [POST] /login                -> User Authentication');
+  print('-------------------------------------------');
 }
 
 // --- HANDLERS ---
@@ -58,6 +66,6 @@ Future<Response> _dbTestHandler(Request request) async {
 }
 
 Future<Response> _loginHandler(Request request) async {
-  // (Your existing login logic remains the same here...)
+  // Your login logic here
   return Response.ok('Login logic running');
 }
