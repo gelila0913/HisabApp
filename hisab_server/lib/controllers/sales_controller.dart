@@ -29,7 +29,7 @@ class SalesController {
 
       int totalQtySoldInThisSale = 0;
 
-      // 2. Loop through items to update inventory and staff performance breakdown
+      // 2. Loop through items
       for (var item in items) {
         int pId = item['product_id'];
         int qty = int.parse(item['quantity'].toString());
@@ -41,22 +41,21 @@ class SalesController {
         // A. Decrease Product Stock
         await conn.query('UPDATE products SET current_stock = current_stock - ? WHERE id = ?', [qty, pId]);
 
-        // B. Get Product Name to use as a key in the JSON summary
+        // B. Get Product Name
         var productRes = await conn.query('SELECT name FROM products WHERE id = ?', [pId]);
-        String productName = productRes.first['name'].toString();
+        String productName = productRes.first[0].toString();
 
-        // C. DYNAMIC JSON UPDATE: Update or Add the specific product count for this staff member
-        // This handles the logic: if existing count is 5 and qty is 2, result is 7
-        String jsonPath = '\$."$productName"';
+        // C. FIX: DYNAMIC JSON UPDATE
+        // Using CONCAT and JSON_QUOTE ensures names like "Camon 20" work perfectly
         await conn.query('''
           UPDATE staff 
           SET sold_items_summary = JSON_SET(
             IFNULL(sold_items_summary, JSON_OBJECT()), 
-            ?, 
-            (IFNULL(JSON_EXTRACT(sold_items_summary, ?), 0) + ?)
+            CONCAT('\$.', JSON_QUOTE(?)), 
+            CAST(IFNULL(JSON_EXTRACT(sold_items_summary, CONCAT('\$.', JSON_QUOTE(?))), 0) AS UNSIGNED) + ?
           ) 
           WHERE id = ?
-        ''', [jsonPath, jsonPath, qty, staffId]);
+        ''', [productName, productName, qty, staffId]);
 
         // D. Record individual item
         await conn.query(
@@ -70,7 +69,7 @@ class SalesController {
 
       // 3. Update the staff member's total units count
       await conn.query(
-        'UPDATE staff SET total_units_sold = total_units_sold + ? WHERE id = ?',
+        'UPDATE staff SET total_units_sold = IFNULL(total_units_sold, 0) + ? WHERE id = ?',
         [totalQtySoldInThisSale, staffId]
       );
 
@@ -79,6 +78,7 @@ class SalesController {
 
     } catch (e) {
       await conn.query('ROLLBACK');
+      print("ERROR: $e"); // Helpful for debugging
       return Response.internalServerError(body: jsonEncode({'error': e.toString()}));
     } finally {
       await conn.close();
