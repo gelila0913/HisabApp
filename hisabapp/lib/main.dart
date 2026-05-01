@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// Make sure to import your WelcomeScreen file correctly based on its location
-import 'features/Landing_page/landing.dart'; 
+// Updated import path: point directly to the file containing AddProductView
+import 'package:hisabapp/core/presentation/widgets/modals/add_product.dart';
 
 void main() {
   runApp(const HisabApp());
@@ -13,13 +13,18 @@ class HisabApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'HisabApp',
-      debugShowCheckedModeBanner: false, // Hides the debug banner
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: 'Inter', // Optional: Use your design font family here
+        fontFamily: 'Inter',
       ),
-      // This tells Flutter to show your WelcomeScreen first
-      home: const WelcomeScreen(), 
+      home: const Scaffold(
+        backgroundColor: Colors.white12,
+        body: Center(
+          // Removed the invalid 'const' keyword
+          child: AddProductView(), 
+        ),
+      ),
     );
   }
 }
