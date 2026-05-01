@@ -19,30 +19,38 @@ class WelcomeScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Logo 1: Top logo (jpg)
-                  Image.asset(
-                    'assets/images/logo2.png',
-                    width: 140, 
-                    height: 140,
-                    fit: BoxFit.contain,
-                  ),
-                  
-                  const SizedBox(height: 8),
-
-                  // Logo 2: Bottom icon (png with white background removed using blend mode)
-                  ColorFiltered(
-                    colorFilter: const ColorFilter.mode(
-                      Colors.white,
-                      BlendMode.modulate, // Helps filter out the white background
-                    ),
-                    child: Image.asset(
-                      'assets/images/logo1.jpg',
-                      width: 110, 
-                      height: 110,
-                      fit: BoxFit.contain,
-                      errorBuilder: (context, error, stackTrace) {
-                        return const SizedBox.shrink();
-                      },
+                  SizedBox(
+                    height: 185,
+                    child: Stack(
+                      alignment: Alignment.topCenter,
+                      children: [
+                        // Logo 1: Top logo
+                        Image.asset(
+                          'assets/images/logo2.png',
+                          width: 140,
+                          height: 140,
+                          fit: BoxFit.contain,
+                        ),
+                        // Logo 2: overlaps logo1 from below
+                        Positioned(
+                          top: 85,
+                          child: ColorFiltered(
+                            colorFilter: const ColorFilter.mode(
+                              Colors.white,
+                              BlendMode.modulate,
+                            ),
+                            child: Image.asset(
+                              'assets/images/logo1.jpg',
+                              width: 110,
+                              height: 110,
+                              fit: BoxFit.contain,
+                              errorBuilder: (context, error, stackTrace) {
+                                return const SizedBox.shrink();
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -70,7 +78,7 @@ class WelcomeScreen extends StatelessWidget {
             
             // --- Action Button ---
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 140, vertical: 20),
               child: SizedBox(
                 width: double.infinity,
                 height: 50,
